@@ -4905,6 +4905,11 @@ javascript-stringify@^2.0.1:
   resolved "https://registry.npm.taobao.org/javascript-stringify/download/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
   integrity sha1-J8dlOb4U2L0Sghmi1zGwkzeQTnk=
 
+jquery@^3.1.1, jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.6.0.tgz?cache=0&sync_timestamp=1614705838607&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjquery%2Fdownload%2Fjquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha1-xyoJ8Vwb3OFC9J2/EXC9+K2sJHA=
+
 js-message@1.0.7:
   version "1.0.7"
   resolved "https://registry.npm.taobao.org/js-message/download/js-message-1.0.7.tgz#fbddd053c7a47021871bb8b2c95397cc17c20e47"
@@ -5059,6 +5064,18 @@ launch-editor@^2.2.1:
   dependencies:
     chalk "^2.3.0"
     shell-quote "^1.6.1"
+
+layer-src@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.nlark.com/layer-src/download/layer-src-3.5.0.tgz#9e3e5d8ae765677b75ea953633cf26819cdf121f"
+  integrity sha1-nj5diudlZ3t16pU2M88mgZzfEh8=
+
+layui-layer@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npm.taobao.org/layui-layer/download/layui-layer-1.0.9.tgz#b78d9d73aa8e9c31465141c4c6da3250e6a208e8"
+  integrity sha1-t42dc6qOnDFGUUHExtoyUOaiCOg=
+  dependencies:
+    jquery "^3.1.1"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
