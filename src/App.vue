@@ -9,14 +9,15 @@
     </div>
 
     <div id="buttonGroup">
-      <el-button @click="startTimer()" type="primary" plain>开始</el-button>
-      <el-button @click="stopTimer()" type="info" plain>停止</el-button>
+      <el-button @click="startTimer()" type="primary" plain :disabled="disabledStart">开始</el-button>
+      <el-button @click="stopTimer()" type="info" plain :disabled="disabledStop">停止</el-button>
       <el-button @click="resetTimer()" type="danger" plain>重置</el-button>
     </div>
   </div>
 </template>
 
 <script>
+
 
 export default {
   data() {
@@ -27,17 +28,21 @@ export default {
       minute: 0,
       overSeconds: 0,
       overMinutes: 0,
+      disabledStart: false,
+      disabledStop: true,
+      zeroSeconds:0,
     }
   },
   created() {
+
   },
   destroyed() {
     clearInterval(this.timer);
   },
   methods: {
-
-
     startTimer() {
+      this.disabledStart = true;
+      this.disabledStop = false;
       this.timer = setInterval(() => {
         this.seconds += 1;
         if (this.seconds >= 60) {
@@ -46,13 +51,20 @@ export default {
           if (this.minute == 4) {
             this.$message({
               type: 'warning',
-              message: '已经到4分钟了哦'
+              message: '已经到4分钟了哦',
+              duration:5000,
             });
           }
+          if(this.seconds<10){
+            this.zeroSeconds=this.addZero(this.seconds);
+            return this.zeroSeconds
+          }else {
+            this.zeroSeconds=this.seconds;
+            return this.zeroSeconds
+          }
+
         }
-      }, 10)
-
-
+      }, 1000)
     },
     stopTimer() {
       if (this.minute >= 4) {
@@ -60,16 +72,24 @@ export default {
         this.overSeconds = this.seconds
         this.$message({
           message: "超时时间是" + this.overMinutes + "分" + this.overSeconds + "秒",
-          type: 'error'
+          type: 'error',
+          duration:10000,
         });
       }
+      this.disabledStart = false;
+      this.disabledStop = true;
       clearInterval(this.timer);
 
     },
     resetTimer() {
+      console.log("上次计时时间为"+this.minute+"分"+this.seconds+"秒")
+      this.disabledStart = false;
+      this.disabledStop = true;
       clearInterval(this.timer);
       this.seconds = 0;
       this.minute = 0;
+      this.overMinutes = 0;
+      this.overSeconds = 0;
     },
     addZero(value) {
       if (value < 10) {
